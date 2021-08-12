@@ -11,8 +11,6 @@ PITCH_WIDTH = 80
 PITCH_HEIGHT = 120
 CIRCLE_RADIUS = 12
 LINE_COLOR = '#9fa6b7'
-BACKGROUND_COLOR = '#171b26'
-PITCH_COLOT = ''
 SMALL_AREA_WIDTH = 20
 SMALL_AREA_HEIGHT = 6
 PENALTY_AREA_WIDTH = 44
@@ -52,8 +50,8 @@ def plot_pitch():
                    ),
         margin=dict(l=0, r=0, t=0, b=0),
         width=PITCH_WIDTH * 6, height=PITCH_HEIGHT * 6,
-        # paper_bgcolor='#000000',
-        plot_bgcolor=BACKGROUND_COLOR,
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
         showlegend=False
     )
 
