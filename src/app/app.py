@@ -11,7 +11,7 @@ import numpy as np
 from joblib import load
 
 from src import DATA_PATH, MODEL_PATH
-from figs.pitch import plot_pitch
+from src.app.figs.pitch import plot_pitch
 
 # Data and model
 NUMERICAL_FEATURES = ['distance', 'angle']
@@ -93,6 +93,8 @@ inputs = dbc.Form([play_pattern_form, shot_body_part_form, shot_technique_form, 
 
 # Main app
 app = dash.Dash(external_stylesheets=[dbc.themes.SUPERHERO])
+
+server = app.server
 
 app.layout = dbc.Container(
     [
