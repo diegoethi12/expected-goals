@@ -134,11 +134,12 @@ def update_xg(play_pattern, shot_body_part, shot_technique, angle, distance):
         dict(play_pattern=play_pattern,
              shot_body_part=shot_body_part,
              shot_technique=shot_technique,
+             distance=distance,
              angle=angle,
-             distance=distance),
+             ),
         index=[0]
     )
-    xg = xg_model.predict_proba(df)[:, 1]
+    xg = xg_model.predict_proba(df)[:, 1][0]
     return f"xG: {int(np.round(xg, 2) * 100)}%"
 
 
