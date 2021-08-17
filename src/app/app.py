@@ -11,7 +11,7 @@ import numpy as np
 from joblib import load
 
 from src import DATA_PATH, MODEL_PATH
-from src.app.figs.pitch import plot_pitch
+from src.app.components.pitch import plot_pitch
 
 # Data and model
 NUMERICAL_FEATURES = ['distance', 'angle']
