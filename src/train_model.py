@@ -2,7 +2,8 @@ import pandas as pd
 import joblib
 
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.preprocessing import StandardScaler
+from category_encoders import OneHotEncoder
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import GradientBoostingClassifier
@@ -31,7 +32,7 @@ numerical_transformer = Pipeline(steps=[
 ])
 
 categorical_transformer = Pipeline(steps=[
-    ('one_hot', OneHotEncoder(handle_unknown='ignore'))
+    ('one_hot', OneHotEncoder(use_cat_names=True))
 ])
 
 preprocessor = ColumnTransformer(transformers=[
