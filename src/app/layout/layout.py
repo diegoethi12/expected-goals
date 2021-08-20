@@ -4,9 +4,9 @@ import dash_html_components as html
 
 from joblib import load
 
-from src.app.components.pitch import plot_pitch
 from src import MODEL_PATH
 from src.app.layout.inputs.inputs import inputs
+from src.app.layout.pitchbar.pitchbar import pitchbar
 
 # Data and model
 xg_model = load(MODEL_PATH / 'model.joblib')
@@ -28,12 +28,7 @@ layout = dbc.Container(
 
         dbc.Row(
             [
-                dbc.Col(
-                    [
-                        html.H1(id='xg-value', style={'color': '#52AC86', 'textAlign': 'left'}),
-                        dcc.Graph(id='pitch', figure=plot_pitch())
-                    ]
-                ),
+                dbc.Col(pitchbar),
                 dbc.Col(inputs, md=8),
             ],
             align="center",
