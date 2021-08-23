@@ -7,6 +7,7 @@ from src.app.components.pitch import plot_pitch, PENALTY_DISTANCE, PITCH_WIDTH \
 
 pith = plot_pitch()
 
+
 # Add first shot point to pitch
 pith.add_trace(
     Scatter(
@@ -30,6 +31,20 @@ pith.add_trace(
     )
 )
 
+# Add points to click
+all_range = (PITCH_WIDTH+1)*(PITCH_HEIGHT+1)
+all_x = [i % (PITCH_WIDTH + 1) for i in range(all_range)]
+all_y = [i // (PITCH_WIDTH + 1) for i in range(all_range)]
+pith.add_trace(
+    Scatter(
+        x=all_x,
+        y=all_y,
+        mode='markers',
+        marker_size=0,
+        hoverinfo='none',
+        opacity=0
+    )
+)
 
 pitchbar = [
     html.H1(id='xg-value', style={'color': '#52AC86', 'textAlign': 'left'}),
