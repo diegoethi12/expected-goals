@@ -47,6 +47,10 @@ pith.add_trace(
 )
 
 pitchbar = [
-    html.H1(id='xg-value', style={'color': '#52AC86', 'textAlign': 'left'}),
+    html.H1(
+        id='xg-value',
+        children='Select pitch position to calculate xG',
+        style={'color': '#52AC86', 'textAlign': 'left'}
+    ),
     dcc.Graph(id='pitch', figure=pith)
 ]
