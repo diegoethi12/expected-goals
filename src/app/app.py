@@ -9,6 +9,8 @@ import pandas as pd
 import numpy as np
 
 from src.app.layout.layout import layout, xg_model
+from src.clean_data import shot_distance, shot_angle
+from src.app.components.pitch import PITCH_WIDTH, PITCH_HEIGHT
 
 # Main app
 app = dash.Dash(external_stylesheets=[dbc.themes.SUPERHERO])
@@ -23,19 +25,20 @@ app.layout = layout
     Input('play-pattern-dropdown', 'value'),
     Input('shot-body-part-dropdown', 'value'),
     Input('shot-technique-dropdown', 'value'),
-    Input('angle-slider', 'value'),
-    Input('distance-slider', 'value')
+    Input('pitch', 'clickData'),
 )
-def update_xg(play_pattern, shot_body_part, shot_technique, angle, distance):
-    # TO DO:
-    # - Update shot angle with pitch selection
-    # - Update shot distance with pitch selection
+def update_xg(play_pattern, shot_body_part, shot_technique, click_data):
+
+    # Get clicked coordinates
+    x = click_data['points'][0]['x']
+    y = click_data['points'][0]['y']
+
     df = pd.DataFrame(
         dict(play_pattern=play_pattern,
              shot_body_part=shot_body_part,
              shot_technique=shot_technique,
-             distance=distance,
-             angle=angle,
+             distance=shot_distance((y, x), (PITCH_WIDTH / 2, PITCH_HEIGHT)),
+             angle=shot_angle((y, x)),
              ),
         index=[0]
     )
