@@ -19,6 +19,10 @@ GOAL_HEIGHT = 2
 GOAL_WIDTH = 8
 PENALTY_DISTANCE = 12
 
+# Calculated measures
+GOAL_FIRST_POST_X = (PITCH_WIDTH - GOAL_WIDTH) / 2
+GOAL_SECOND_POST_X = (PITCH_WIDTH + GOAL_WIDTH) / 2
+
 
 def semi_circle_points(xcenter, ycenter, radius, points, cutmode, ycut):
     x = np.array([cos(2 * pi / points * x) * radius for x in range(0, points + 1)])

@@ -49,29 +49,4 @@ shot_technique_form = create_dropdown_form_group(
     description='Select a shot technique'
 )
 
-angle_form = dbc.FormGroup([
-    dbc.Label('Shot Angle', html_for='angle-slider'),
-    dcc.Slider(
-        id='angle-slider',
-        min=0,
-        max=1,
-        value=0.4,
-        marks={str(round(angle, 1)): str(round(angle, 1)) for angle in np.arange(0, 1.1, 0.1)},
-        step=None
-    )
-])
-
-distance_form = dbc.FormGroup([
-    dbc.Label('Distance', html_for='distance-slider'),
-    dcc.Slider(
-        id='distance-slider',
-        min=0,
-        max=100,
-        value=20,
-        marks={str(round(distance, 1)): str(round(distance, 1)) for distance in range(0, 101, 10)},
-        step=None
-    )
-])
-
-
-inputs = dbc.Form([play_pattern_form, shot_body_part_form, shot_technique_form, angle_form, distance_form])
+inputs = dbc.Form([play_pattern_form, shot_body_part_form, shot_technique_form])
