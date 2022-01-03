@@ -1,6 +1,5 @@
 # expected-goals
-Building of expected goals models, apps and analysis
+Building expected goals models, apps and analysis
 
-### TO DO:
-- Include initial clicked point to calculate xG
-- Use horizontal pitch to improve coherence
+Alpha web app:
+[Web App](https://expected-goals-qwxmbhmlka-ue.a.run.app/)
