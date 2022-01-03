@@ -10,7 +10,7 @@ import numpy as np
 
 from src.app.layout.layout import layout, xg_model
 from src.clean_data import shot_distance, shot_angle
-from src.app.components.pitch import PITCH_WIDTH, PITCH_HEIGHT
+from src.app.components.pitch import PITCH_WIDTH, PITCH_HEIGHT, PENALTY_DISTANCE
 
 # Main app
 app = dash.Dash(external_stylesheets=[dbc.themes.SUPERHERO])
@@ -30,8 +30,12 @@ app.layout = layout
 def update_xg(play_pattern, shot_body_part, shot_technique, click_data):
 
     # Get clicked coordinates
-    x = click_data['points'][0]['x']
-    y = click_data['points'][0]['y']
+    if click_data:
+        x = click_data['points'][0]['x']
+        y = click_data['points'][0]['y']
+    else:
+        x = PITCH_WIDTH / 2
+        y = PITCH_HEIGHT - PENALTY_DISTANCE
 
     df = pd.DataFrame(
         dict(play_pattern=play_pattern,
